@@ -11,9 +11,7 @@ Note : αt, βt, γt here are the Euler Angles, while xt, yt, zt are Cartesian C
 In Visual Odometry, we have a camera (or an array of cameras) rigidly attached to a moving object (such as a car or a robot), and our job is to construct a 6-DOF trajectory using the video stream coming from this camera(s). When only one camera is used, it’s called Monocular Visual Odometry and when two (or more) cameras, it’s referred to as Stereo Visual Odometry.
 
 ### Input:
-We have a stream of images (i.e. video - grayscale/color) coming from a camera. Let the
-t t+1 frames, captured at time t and t + 1 be referred to as I , I
-. We have prior knowledge of all the intrinsic parameters, obtained via calibration, which can be done in OpenCV.
+We have a stream of images (i.e. video - grayscale/color) coming from a camera. We have prior knowledge of all the intrinsic parameters, obtained via calibration, which can be done in OpenCV.
 
 ### Output:
 For every pair of images, we need to find the Rotation Matrix R and the Translation Vector t, which describes the motion of the vehicle between the two frames. The vector t can only be computed up to a scale factor in our monocular scheme.
