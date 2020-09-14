@@ -16,4 +16,7 @@ We have a stream of images (i.e. video - grayscale/color) coming from a camera. 
 ### Output:
 For every pair of images, we need to find the Rotation Matrix R and the Translation Vector t, which describes the motion of the vehicle between the two frames. The vector t can only be computed up to a scale factor in our monocular scheme.
 
+## Working code:
+
+The working code uses images from the KITTI dataset and ground truth for finding the absolute scale. 
 
