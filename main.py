@@ -20,7 +20,7 @@ from visual_odometry import PinholeCamera, VisualOdometry
 # ----------------------------------
 
 # Define the Path for the img folder 
-img_folder_path = '/Volumes/Mr. DBKHD/Dataset/KITTI/pose_dataset/sequences/10/image_0'
+img_folder_path = '/Volumes/phantom/dataset_tum/odometer_gray/sequences/00/image_0/'
 
 # Calculating total number of files
 def listdir_nohidden(path):
@@ -40,7 +40,7 @@ img_count = listdir_nohidden(img_folder_path)
 # ------------------------------
 
 # Opens the Video file
-cap = ai.VideoCapture('/Users/phantom/fun/VO/code/1/seq_10.avi')
+cap = ai.VideoCapture('/Volumes/phantom/MS-Thesis/# VO/#misc/git.vo/video/')
 
 # Saving frames extracted from video in a folder
 i = 0
@@ -76,19 +76,29 @@ cam = PinholeCamera(1241.0, 376.0, 718.8560, 718.8560, 607.1928, 185.2157)
 # Visual Odometry
 # ************************
 
-vo = VisualOdometry(cam, '/Volumes/Mr. DBKHD/Dataset/KITTI/true_dataset/poses/00.txt')
+vo = VisualOdometry(cam, '/Volumes/phantom/dataset_tum/dataset/poses/00.txt')
+import numpy as np
+from pyquaternion import Quaternion
 
 
 
 for img_id in range(img_count):
-	img = ai.imread('/Volumes/Mr. DBKHD/Dataset/KITTI/pose_dataset/sequences/00/image_0/'+str(img_id).zfill(6)+'.png', 0)
+	img = ai.imread(img_folder_path+str(img_id).zfill(6)+'.png', 0)
 
 	vo.pointer(img, img_id)
 
 	cur_t = vo.cur_t
+	rotation = vo.cur_R
+	print("\nRotational Matrix :")
+	print(rotation)
+
 
 	if(img_id > 2):
 		x, y, z = cur_t[0], cur_t[1], cur_t[2]
+		q8d = Quaternion(matrix=rotation)
+		print("\nQuartanion from R :")
+		print(q8d)	
+	
 	else:
 		x, y, z = 0.0, 0.0, 0.0
 

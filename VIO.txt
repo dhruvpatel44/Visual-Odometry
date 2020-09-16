@@ -1,0 +1,38 @@
+# Visual Inertial Odometry
+--------------------------
+
+## Where are we right now ?
+
+- Visual Part is working.
+	[ We get Rotational Matrix [R] and translation vector [t].. ]
+	however, we use the groud truth for estimating the absolute scale.
+	which is not true in real life. (no ground truth available)
+	So, this way we can't get the absolute scale.
+
+- What can we do ?
+	Well, the good thing is that we don't have just one sensor.
+	We can use IMU data as well as GPS data and fuse these sensors together for calculating the scale.
+	But, GPS doesn't have that much accuracy. (2 m - 10 m)
+
+	IMU is the better option. There are different variaties of IMU sensors. (Basic Class : Gyros and Magnetometers) 
+
+
+1. Visual Odometry
+--------------------
+
+	- Get first image | Find good features to track
+	- Get second image | Find good features to track
+	- Match Featrues from image 1 onto image 2
+	- Run RANSAC to find Essential Matrix
+	- Decompose Essential Matrix into Rotational Matrix and Translation vector
+	- Scale calculations
+			a) Using Ground Truth - not practical
+			b) Sensor Fusion with IMU
+ 
+
+
+2. Inertial Odometry
+-----------------------
+
+
+
