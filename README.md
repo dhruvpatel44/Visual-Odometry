@@ -20,3 +20,22 @@ For every pair of images, we need to find the Rotation Matrix R and the Translat
 
 The working code uses images from the KITTI dataset and ground truth for finding the absolute scale. 
 
+
+## What are the next steps ??
+
+- Determine what approach to be taken to get pose from IMU data.
+	1)	Using Quartanions transformation
+	2)	Using Euler Angles
+	3)	.... and much more
+
+- Infuse the Pose from IMU and VO using an EKF algorithm
+
+
+## Questions
+
+1)	What is the output of the IMU that we will get ??
+2)	How to get the absolute scale for VIO ??
+3)	Kalman Filter Equations 
+4)	Optimization
+
+
